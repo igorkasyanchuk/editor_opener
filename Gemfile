@@ -3,7 +3,7 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in editor_opener.gemspec.
 gemspec
 
-gem "rails"#, path: "../rails"
+gem "rails"
 
 gem "puma"
 
@@ -13,4 +13,8 @@ gem "sqlite3"
 gem "rubocop-rails-omakase", require: false
 
 # Start debugger with binding.b [https://github.com/ruby/debug]
-# gem "debug", ">= 1.0.0"
+gem "debug"
+
+group :test do
+  gem "minitest"
+end

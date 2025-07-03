@@ -6,19 +6,19 @@ module ActionDispatch
   # This is used to open the file in the editor when the user clicks on the edit icon. You have to set the `EDITOR` environment variable to the editor you want to use.
   class TraceToFileExtractor
     KNOWN_EDITORS = [
-      { symbols: [:atom], sniff: /atom/i, url: "atom://core/open/file?filename=%{file}&line=%{line}" },
-      { symbols: [:emacs, :emacsclient], sniff: /emacs/i, url: "emacs://open?url=file://%{file}&line=%{line}" },
-      { symbols: [:idea], sniff: /idea/i, url: "idea://open?file=%{file}&line=%{line}" },
-      { symbols: [:macvim, :mvim], sniff: /vim/i, url: "mvim://open?url=file://%{file_unencoded}&line=%{line}" },
-      { symbols: [:rubymine], sniff: /mine/i, url: "x-mine://open?file=%{file}&line=%{line}" },
-      { symbols: [:sublime, :subl, :st], sniff: /subl/i, url: "subl://open?url=file://%{file}&line=%{line}" },
-      { symbols: [:textmate, :txmt, :tm], sniff: /mate/i, url: "txmt://open?url=file://%{file}&line=%{line}" },
-      { symbols: [:vscode, :code], sniff: /code/i, url: "vscode://file/%{file}:%{line}" },
-      { symbols: [:vscodium, :codium], sniff: /codium/i, url: "vscodium://file/%{file}:%{line}" },
-      { symbols: [:windsurf], sniff: /windsurf/i, url: "windsurf://file/%{file}:%{line}" },
-      { symbols: [:zed], sniff: /zed/i, url: 'zed://file/%{file}:%{line}' },
-      { symbols: [:nova], sniff: /nova/i, url: "nova://open?path=%{file}&line=%{line}" },
-      { symbols: [:cursor], sniff: /cursor/i, url: "cursor://file/%{file}:%{line}" },
+      { symbols: [ :atom ], sniff: /atom/i, url: "atom://core/open/file?filename=%{file}&line=%{line}" },
+      { symbols: [ :emacs, :emacsclient ], sniff: /emacs/i, url: "emacs://open?url=file://%{file}&line=%{line}" },
+      { symbols: [ :idea ], sniff: /idea/i, url: "idea://open?file=%{file}&line=%{line}" },
+      { symbols: [ :macvim, :mvim ], sniff: /vim/i, url: "mvim://open?url=file://%{file_unencoded}&line=%{line}" },
+      { symbols: [ :rubymine ], sniff: /mine/i, url: "x-mine://open?file=%{file}&line=%{line}" },
+      { symbols: [ :sublime, :subl, :st ], sniff: /subl/i, url: "subl://open?url=file://%{file}&line=%{line}" },
+      { symbols: [ :textmate, :txmt, :tm ], sniff: /mate/i, url: "txmt://open?url=file://%{file}&line=%{line}" },
+      { symbols: [ :vscode, :code ], sniff: /code/i, url: "vscode://file/%{file}:%{line}" },
+      { symbols: [ :vscodium, :codium ], sniff: /codium/i, url: "vscodium://file/%{file}:%{line}" },
+      { symbols: [ :windsurf ], sniff: /windsurf/i, url: "windsurf://file/%{file}:%{line}" },
+      { symbols: [ :zed ], sniff: /zed/i, url: "zed://file/%{file}:%{line}" },
+      { symbols: [ :nova ], sniff: /nova/i, url: "nova://open?path=%{file}&line=%{line}" },
+      { symbols: [ :cursor ], sniff: /cursor/i, url: "cursor://file/%{file}:%{line}" }
     ]
 
     class << self

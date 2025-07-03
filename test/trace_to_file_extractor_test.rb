@@ -5,7 +5,7 @@ require "rails"
 require "action_pack"
 require "minitest"
 require "debug"
-require 'minitest/mock'
+require "minitest/mock"
 require_relative "../lib/editor_opener/action_dispatch/trace_to_file_extractor"
 
 class TraceToFileExtractorTest < ActiveSupport::TestCase
