@@ -14,6 +14,7 @@ gem "rubocop-rails-omakase", require: false
 
 # Start debugger with binding.b [https://github.com/ruby/debug]
 gem "debug"
+gem "wrapped_print"
 
 group :test do
   gem "minitest"

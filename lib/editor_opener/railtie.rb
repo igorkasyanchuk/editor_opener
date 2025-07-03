@@ -7,7 +7,7 @@ module EditorOpener
         path = File.expand_path("../../app/views", __dir__)
 
         # DebugView has custom templates path, that cannot be overridden by prepend_view_path
-        ActionDispatch::DebugView::RESCUES_TEMPLATE_PATHS.unshift(path.wp)
+        ActionDispatch::DebugView::RESCUES_TEMPLATE_PATHS.unshift(path)
       end
     end
   end
