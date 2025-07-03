@@ -27,12 +27,19 @@ module ActionDispatch
       end
 
       def editor
-        @editor ||= ENV["EDITOR"].present? && KNOWN_EDITORS.find { |editor| editor[:symbols].include?(ENV["EDITOR"].to_sym) }
+        @editor ||= potential_editor.present? && KNOWN_EDITORS.find { |editor| editor[:symbols].include?(potential_editor.to_sym) }
+      end
+
+      private
+
+      def potential_editor
+        EditorOpener.editor || ENV["EDITOR"]
       end
     end
 
-    def initialize(trace)
+    def initialize(trace, line_number: nil)
       @trace = trace.to_s.strip
+      @line_number = line_number
     end
 
     def call
@@ -55,14 +62,14 @@ module ActionDispatch
       if file_name
         file, line = file_name.split(":")
 
-        self.class.editor[:url] % { file: file, line: line }
+        self.class.editor[:url] % { file: file, line: line_number || line }
       else
         raise @trace
       end
     end
 
     private
-      attr_reader :trace
+      attr_reader :trace, :line_number
 
       def detect_trace_type
         if trace[0] == "/" || trace.match?(/^[A-Z]:/)

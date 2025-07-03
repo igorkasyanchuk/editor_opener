@@ -1,0 +1,26 @@
+===============================================================================
+
+editor_opener initializer has been created!
+
+The initializer has been created at:
+  config/initializers/editor_opener.rb
+
+To get started:
+1. Edit the initializer file to set your preferred editor
+2. Uncomment the line with your editor (e.g., config.editor = :cursor)
+3. Restart your Rails server
+4. Trigger an error in your Rails app to see the editor links
+
+Supported editors include:
+- Visual Studio Code (:vscode)
+- Cursor (:cursor)
+- Atom (:atom)
+- Sublime Text (:sublime, :subl, or :st)
+- RubyMine (:rubymine)
+- Zed (:zed)
+- And many more!
+
+For more information, visit:
+https://github.com/igorkasyanchuk/editor_opener
+
+===============================================================================

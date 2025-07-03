@@ -1,4 +1,5 @@
 require_relative "action_dispatch/trace_to_file_extractor"
+require_relative "action_dispatch/exception_wrapper_overrides"
 
 module EditorOpener
   class Railtie < ::Rails::Railtie
@@ -9,6 +10,8 @@ module EditorOpener
         # DebugView has custom templates path, that cannot be overridden by prepend_view_path
         ActionDispatch::DebugView::RESCUES_TEMPLATE_PATHS.unshift(path)
       end
+
+      ActionDispatch::ExceptionWrapper.prepend(ActionDispatch::ExceptionWrapperOverrides)
     end
   end
 end

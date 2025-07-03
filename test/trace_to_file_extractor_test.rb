@@ -34,12 +34,12 @@ class TraceToFileExtractorTest < ActiveSupport::TestCase
   test "trace to file extractor when we have trace from the gem" do
     error_highlight_spec = Gem.loaded_specs["error_highlight"]
     puma_spec = Gem.loaded_specs["puma"]
-    activerecord_spec = Gem.loaded_specs["activerecord"]
+    active_record_spec = Gem.loaded_specs["activerecord"]
 
     Rails.stub(:root, "/Users/john/projects/rails") do
       assert_equal "atom://core/open/file?filename=#{error_highlight_spec.full_gem_path}/lib/abc.rb&line=24", ActionDispatch::TraceToFileExtractor.new("error_highlight (1.2.3) lib/abc.rb:24:in 'SomeClass#some_method'").call
       assert_equal "atom://core/open/file?filename=#{puma_spec.full_gem_path}/lib/puma/configuration.rb&line=279", ActionDispatch::TraceToFileExtractor.new("puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'").call
-      assert_equal "atom://core/open/file?filename=#{activerecord_spec.full_gem_path}/lib/active_record/dynamic_matchers.rb&line=22", ActionDispatch::TraceToFileExtractor.new("activerecord (8.0.2) lib/active_record/dynamic_matchers.rb:22:in 'ActiveRecord::DynamicMatchers#method_missing'").call
+      assert_equal "atom://core/open/file?filename=#{active_record_spec.full_gem_path}/lib/active_record/dynamic_matchers.rb&line=22", ActionDispatch::TraceToFileExtractor.new("activerecord (8.0.2) lib/active_record/dynamic_matchers.rb:22:in 'ActiveRecord::DynamicMatchers#method_missing'").call
     end
   end
 
