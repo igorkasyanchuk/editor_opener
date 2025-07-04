@@ -6,6 +6,7 @@ Open source files in your editor directly from Rails error pages. This gem adds 
 
 ## Features
 
+- 🔥 **Works with Rails 7.1+**
 - 🔗 **Clickable file links** in Rails error pages
 - 📝 **Multiple editor support** - Works with 13+ popular editors
 - 🎯 **Precise line targeting** - Opens files at the exact error line
@@ -172,7 +173,24 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/igorka
 
 ## TODO
 
-- verify it works with old Rails versions
+- verify it works with old Rails versions (test with 7.1.0 and it works, for older versions it doesn't work)
+  possible fix:
+  ```ruby
+  # in railtie.rb
+    if defined?(ActionDispatch::DebugView::RESCUES_TEMPLATE_PATHS)
+      ActionDispatch::DebugView::RESCUES_TEMPLATE_PATHS.unshift(path)
+    else
+      module X
+        def initialize(assigns)
+          paths = [RESCUES_TEMPLATE_PATH]
+          lookup_context = ActionView::LookupContext.new(paths, path)
+          super(lookup_context, assigns, nil)
+        end
+      end
+
+      ActionDispatch::DebugView.prepend(X)
+  ```
+  But something is wrong in the views. Maybe we need to support older views, and create a new copy of them?
 - more tests
 - support for more error pages?
 - support for more editors

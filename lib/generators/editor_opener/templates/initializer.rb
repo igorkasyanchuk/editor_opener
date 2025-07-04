@@ -40,4 +40,4 @@ EditorOpener.setup do |config|
   # config.editor = :rubymine   # For RubyMine
   # config.editor = :cursor     # For Cursor
   # config.editor = :zed        # For Zed
-end
+end if defined?(EditorOpener)
