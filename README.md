@@ -191,6 +191,8 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/igorka
       ActionDispatch::DebugView.prepend(X)
   ```
   But something is wrong in the views. Maybe we need to support older views, and create a new copy of them?
+  Also, you don't see the full exception, maybe this setting `config.action_dispatch.show_exceptions` can help, or capture exception with begin/rescue and print in the console?
+
 - more tests
 - support for more error pages?
 - support for more editors

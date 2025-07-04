@@ -5,7 +5,7 @@
 EditorOpener.setup do |config|
   # Set your preferred editor
   # You can use any of the supported editors listed below:
-  # config.editor = :cursor
+  # config.editor = ENV["EDITOR"] || :cursor
 
   # Alternatively, you can set the EDITOR environment variable
   # export EDITOR=cursor
