@@ -1,3 +1,7 @@
+## 0.1.3
+  - use emoji to edit file insteaf of SVG icon
+  - added support for Kiro editor
+
 ## 0.1.2
   - better initializer template
   - use EDITOR environment variable if set in the initializer

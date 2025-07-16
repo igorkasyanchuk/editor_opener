@@ -11,7 +11,7 @@ Open source files in your editor directly from Rails error pages. This gem adds 
 - 📝 **Multiple editor support** - Works with 13+ popular editors
 - 🎯 **Precise line targeting** - Opens files at the exact error line
 - 🔧 **Easy configuration** - Set via initializer or environment variable
-- 🚀 **Zero configuration** - Works out of the box with `EDITOR` environment variable
+- 🚀 **Zero configuration** - Works out of the box with `EDITOR` or `RAILS_EDITOR` environment variable
 - 📱 **Custom URL schemes** - Uses editor-specific protocols for seamless integration
 
 ## Installation
@@ -49,12 +49,15 @@ end
 
 ### Option 2: Environment variable
 
-Set the `EDITOR` environment variable:
+Set the `EDITOR` or `RAILS_EDITOR` environment variable:
 
 ```bash
 export EDITOR=cursor  # for Cursor
 export EDITOR=atom    # for Atom
 export EDITOR=subl    # for Sublime Text
+export RAILS_EDITOR=cursor  # for Cursor
+export RAILS_EDITOR=atom    # for Atom
+export RAILS_EDITOR=subl    # for Sublime Text
 ```
 
 ## Usage
@@ -105,9 +108,13 @@ end
 ```bash
 # In your shell profile (~/.bashrc, ~/.zshrc, etc.)
 export EDITOR=cursor
+# or
+export RAILS_EDITOR=cursor
 
 # Or in your .env file (if using dotenv)
 EDITOR=cursor
+# or
+RAILS_EDITOR=cursor
 ```
 
 ### Multiple Environments

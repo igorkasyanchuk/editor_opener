@@ -18,7 +18,8 @@ module ActionDispatch
       { symbols: [ :windsurf ], sniff: /windsurf/i, url: "windsurf://file/%{file}:%{line}" },
       { symbols: [ :zed ], sniff: /zed/i, url: "zed://file/%{file}:%{line}" },
       { symbols: [ :nova ], sniff: /nova/i, url: "nova://open?path=%{file}&line=%{line}" },
-      { symbols: [ :cursor ], sniff: /cursor/i, url: "cursor://file/%{file}:%{line}" }
+      { symbols: [ :cursor ], sniff: /cursor/i, url: "cursor://file/%{file}:%{line}" },
+      { symbols: [ :kiro ], sniff: /kiro/i, url: "kiro://file/%{file}:%{line}" }
     ]
 
     class << self
@@ -33,7 +34,7 @@ module ActionDispatch
       private
 
       def potential_editor
-        EditorOpener.editor || ENV["EDITOR"]
+        EditorOpener.editor || ENV["RAILS_EDITOR"] || ENV["EDITOR"]
       end
     end
 
