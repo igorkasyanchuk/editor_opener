@@ -42,9 +42,11 @@ This creates `config/initializers/editor_opener.rb` with all supported editors l
 Edit the initializer to set your preferred editor:
 
 ```ruby
-EditorOpener.setup do |config|
-  config.editor = :cursor  # or any other supported editor
-end
+if Rails.env.development?
+  EditorOpener.setup do |config|
+    config.editor = :cursor  # or any other supported editor
+  end
+end  
 ```
 
 ### Option 2: Environment variable
