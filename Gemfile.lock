@@ -116,7 +116,8 @@ GEM
       net-smtp
     marcel (1.0.4)
     mini_mime (1.1.5)
-    minitest (5.25.5)
+    minitest (6.0.1)
+      prism (~> 1.5)
     net-imap (0.5.9)
       date
       net-protocol
@@ -138,7 +139,7 @@ GEM
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
-    prism (1.4.0)
+    prism (1.7.0)
     psych (5.2.6)
       date
       stringio
